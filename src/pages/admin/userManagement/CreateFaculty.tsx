@@ -1,7 +1,7 @@
 import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
 import PHForm from "../../../components/form/PHForm";
 import PHInput from "../../../components/form/PHInput";
-import { Button, Col, Divider, Form, Input, Row, Spin } from "antd";
+import { Button, Col, Divider, Form, Input, Row } from "antd";
 import PHSelect from "../../../components/form/PHSelect";
 import { bloodGroupOptions, gendersOptions } from "../../../constants/global";
 import PHDatePicker from "../../../components/form/PHDatePicker";
@@ -10,7 +10,7 @@ import { toast } from "sonner";
 import { useAddFacultyMutation } from "../../../redux/features/admin/userManagement.api";
 
 const CreateFaculty = () => {
-  const [addFaculty, isLoading] = useAddFacultyMutation();
+  const [addFaculty, ] = useAddFacultyMutation();
 
   const studentDefaultValues = {
     designation: "Lecturer",
@@ -52,7 +52,7 @@ const CreateFaculty = () => {
     formData.append("data", JSON.stringify(facultyData));
     formData.append("file", data.image);
 
-    const res = await addFaculty(formData);
+    const res: any = await addFaculty(formData);
 
     if (!!res.hasOwnProperty("error")) {
       toast.error(res?.error?.data.message);
@@ -116,7 +116,7 @@ const CreateFaculty = () => {
           <Divider>Contact Info</Divider>
           <Row gutter={5}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-              <PHInput type="email" name="email" label="Email" />
+              <PHInput type="text" name="email" label="Email" />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="contactNo" label="Contact" />

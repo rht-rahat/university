@@ -19,6 +19,11 @@ export type TOfferedCourse = {
   completedCourseIds: any[];
   isPreRequisitesFulFilled: boolean;
   isAlreadyEnrolled: boolean;
+  offeredCourse?: string;
+  student?: string;
+  grade?: any;
+  gradePoints?: any;
+  courseMarks?: any
 };
 
 export type TCourse = {

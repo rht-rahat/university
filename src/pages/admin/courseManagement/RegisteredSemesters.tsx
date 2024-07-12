@@ -54,7 +54,7 @@ const RegisteredSemesters = () => {
       },
     };
 
-    const res = await updateSemester(semesterData);
+    const res: any = await updateSemester(semesterData);
 
     if (!!res.hasOwnProperty("error")) {
       toast.error(res?.error?.data.message);
@@ -68,7 +68,7 @@ const RegisteredSemesters = () => {
     onClick: handleUpdateStatus,
   };
 
-  const columns: TableColumnsType<TTableData> = [
+  const columns: TableColumnsType<any> = [
     {
       title: "Name",
       dataIndex: "name",

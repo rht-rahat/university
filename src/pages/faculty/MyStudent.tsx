@@ -45,6 +45,8 @@ const MyStudent = () => {
     return age;
   };
 
+  type facultyData = any
+
   const tableData = facultyCoursesData?.data?.map(
     ({
       _id,
@@ -53,7 +55,7 @@ const MyStudent = () => {
       gradePoints,
       semesterRegistration,
       offeredCourse,
-    }) => ({
+    }: facultyData) => ({
       key: _id,
       fullName: student?.fullName,
       age: calculateAge(student?.dateOfBirth),

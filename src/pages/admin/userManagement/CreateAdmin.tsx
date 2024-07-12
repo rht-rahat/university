@@ -1,33 +1,32 @@
 import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
 import PHForm from "../../../components/form/PHForm";
 import PHInput from "../../../components/form/PHInput";
-import { Button, Col, Divider, Form, Input, Row, Spin } from "antd";
+import { Button, Col, Divider, Form, Input, Row } from "antd";
 import PHSelect from "../../../components/form/PHSelect";
 import { bloodGroupOptions, gendersOptions } from "../../../constants/global";
 import PHDatePicker from "../../../components/form/PHDatePicker";
-import { useGetAcademicDepartmentsQuery } from "../../../redux/features/admin/academicManagement.api";
 import { toast } from "sonner";
 import { useAddAdminMutation } from "../../../redux/features/admin/userManagement.api";
 
 const CreateAdmin = () => {
   const [createAdmin] = useAddAdminMutation();
 
-  const adminValues = {
-    designation: "Admin",
-    name: {
-      firstName: "Mamun",
-      middleName: "Admin",
-      lastName: "of English",
-    },
-    gender: "male",
+  // const adminValues = {
+  //   designation: "Admin",
+  //   name: {
+  //     firstName: "Mamun",
+  //     middleName: "Admin",
+  //     lastName: "of English",
+  //   },
+  //   gender: "male",
 
-    bloogGroup: "A+",
-    email: "faculty@gmail.com",
-    contactNo: "1235678",
-    emergencyContactNo: "987-654-3210",
-    presentAddress: "123 Main St, Cityville",
-    permanentAddress: "456 Oak St, Townsville",
-  };
+  //   bloogGroup: "A+",
+  //   email: "faculty@gmail.com",
+  //   contactNo: "1235678",
+  //   emergencyContactNo: "987-654-3210",
+  //   presentAddress: "123 Main St, Cityville",
+  //   permanentAddress: "456 Oak St, Townsville",
+  // };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const adminData = {
@@ -41,7 +40,7 @@ const CreateAdmin = () => {
     formData.append("data", JSON.stringify(adminData));
     formData.append("file", data.image);
 
-    const res = await createAdmin(formData);
+    const res: any = await createAdmin(formData);
 
     if (!!res.hasOwnProperty("error")) {
       toast.error(res?.error?.data.message);
@@ -105,7 +104,7 @@ const CreateAdmin = () => {
           <Divider>Contact Info</Divider>
           <Row gutter={5}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-              <PHInput type="email" name="email" label="Email" />
+              <PHInput type="text" name="email" label="Email" />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="contactNo" label="Contact" />

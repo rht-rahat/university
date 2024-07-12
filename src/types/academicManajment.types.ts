@@ -24,4 +24,5 @@ export type TAcademicDepartment = {
   academicFaculty: TAcademicFaculty;
   createdAt: string;
   updatedAt: string;
+  key?: number
 };

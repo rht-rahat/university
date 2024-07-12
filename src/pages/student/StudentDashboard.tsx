@@ -23,7 +23,7 @@ const StudentDashboard = () => {
   console.log(myData);
   return (
     <div>
-      <h2 className="p-4 text-xl">Hi {myData?.data?.[0]?.student?.fullName}</h2>
+      <h2 className="p-4 text-xl">Hi {(myData?.data?.[0] as any)?.student?.fullName}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
         <div className="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
           <div className="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -61,7 +61,7 @@ const StudentDashboard = () => {
             </svg> */}
           </div>
           <div className="text-right">
-            <p className="text-2xl">{myData?.data?.[0]?.grade}</p>
+            <p className="text-2xl">{(myData?.data?.[0] as any)?.grade}</p>
             <p>Grade</p>
           </div>
         </div>
@@ -100,7 +100,7 @@ const StudentDashboard = () => {
             </svg> */}
           </div>
           <div className="text-right">
-            <p className="text-2xl">{myData?.data?.[0]?.gradePoints}</p>
+            <p className="text-2xl">{(myData?.data?.[0] as any)?.gradePoints}</p>
             <p>Points</p>
           </div>
         </div>
@@ -125,7 +125,7 @@ const StudentDashboard = () => {
           </div>
           <div className="text-right">
             <p className="text-2xl">
-              {myData?.data?.[0]?.courseMarks?.classTest1}
+              {(myData?.data?.[0] as any)?.courseMarks?.classTest1}
             </p>
             <p>Class Test 1</p>
           </div>
@@ -151,7 +151,7 @@ const StudentDashboard = () => {
           </div>
           <div className="text-right">
             <p className="text-2xl">
-              {myData?.data?.[0]?.courseMarks?.classTest2}
+              {(myData?.data?.[0]as any)?.courseMarks?.classTest2}
             </p>
             <p>Class Test 2</p>
           </div>
@@ -177,7 +177,7 @@ const StudentDashboard = () => {
           </div>
           <div className="text-right">
             <p className="text-2xl">
-              {myData?.data?.[0]?.courseMarks?.midTerm}
+              {(myData?.data?.[0] as any)?.courseMarks?.midTerm}
             </p>
             <p>Mid Term</p>
           </div>
@@ -203,7 +203,7 @@ const StudentDashboard = () => {
           </div>
           <div className="text-right">
             <p className="text-2xl">
-              {myData?.data?.[0]?.courseMarks?.finalTerm}
+              {(myData?.data?.[0] as any)?.courseMarks?.finalTerm}
             </p>
             <p>Final</p>
           </div>

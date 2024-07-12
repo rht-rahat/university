@@ -24,7 +24,9 @@ import { toast } from "sonner";
 export type TTableData = Pick<
   TAcademicDepartment,
   "name" | "createdAt" | "updatedAt"
->;
+> & {
+  key: string;
+};
 
 const AcademicDepartment = () => {
   const [open, setOpen] = useState(false);

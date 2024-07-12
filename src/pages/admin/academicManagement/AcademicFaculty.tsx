@@ -1,4 +1,4 @@
-import { Button, Card, Col, Flex, Pagination, Row, Space, Spin } from "antd";
+import { Button, Card, Col, Flex, Pagination, Row, Space, } from "antd";
 import { useState } from "react";
 
 import { TStudent } from "../../../types/userManagement.types";
@@ -13,7 +13,7 @@ export type TTableData = Pick<TStudent, "name">;
 const AcademicFaculty = () => {
   const token = useAppSelector(currentToken);
   const user = token ? verifyToken(token) : null;
-  const role = user.role;
+  const role = user?.role;
   // const [params, setParams] = useState<TQueryParam[]>([]);
 
   const [page, setPage] = useState(1);

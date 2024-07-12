@@ -14,6 +14,8 @@ import studentAvatar from "../../assets/images/lll.png";
 import femaleAvatar from "../../assets/images/female.png";
 
 export type TTableData = Pick<TOfferedCourse, any>;
+
+type OfferedCourseData = any;
 const MySchedule = () => {
   const [open, setOpen] = useState(false);
   const { data: offerCoursedData, isFetching } =
@@ -45,60 +47,60 @@ const MySchedule = () => {
   };
 
   console.log(offerCoursedData);
-  const tableData = offerCoursedData?.data?.map(
-    ({
-      _id,
-      offeredCourse,
-      student,
-      grade,
-      gradePoints,
-      academicSemester,
-      faculty,
-      course,
-      academicFaculty,
-      academicDepartment,
-      courseMarks,
-    }) => ({
-      key: _id,
-      fullName: student?.fullName,
-      middleName: student?.name?.middleName,
-      firstName: student?.name?.firstName,
-      gender: student?.gender,
-      age: student?.dateOfBirth,
-      sEmail: student?.email,
-      contactNo: student?.contactNo,
-      bloodGroup: student?.bloogGroup,
-      presentAddress: student?.presentAddress,
-      permanentAddress: student?.permanentAddress,
-      id: student?.id,
-      profileImg: student?.profileImg,
-      grade,
-      days: offeredCourse?.days.join(", "),
-      fullNameFaculty: faculty?.fullName,
-      facultyImage: faculty?.profileImg,
-      title: course?.title,
-      gradePoints,
-      fatherName: student?.guardian?.fatherName,
-      motherName: student?.guardian?.motherName,
-      fatherOccupation: student?.guardian?.fatherOccupation,
-      motherOccupation: student?.guardian?.motherOccupation,
-      fatherNumber: student?.guardian?.fatherContactNo,
-      motherNumber: student?.guardian?.motherContactNo,
-      localGuardianName: student?.localGuardian?.name,
-      localGuardianAddress: student?.localGuardian?.address,
-      localGuardianContactNo: student?.localGuardian?.contactNo,
-      localGuardianOccupation: student?.localGuardian?.occupation,
-      academicSemester: academicSemester?.name,
-      academicSemesterCode: academicSemester?.code,
-      facultyName: academicFaculty?.name,
-      academicDepartment: academicDepartment?.name,
-      classTest1: courseMarks?.classTest1,
-      classTest2: courseMarks?.classTest2,
-      midTerm: courseMarks?.midTerm,
-      finalTerm: courseMarks?.finalTerm,
-      isDeleted: student?.isDeleted,
-    })
-  );
+const tableData = offerCoursedData?.data?.map(
+  ({
+    _id,
+    offeredCourse,
+    student,
+    grade,
+    gradePoints,
+    academicSemester,
+    faculty,
+    course,
+    academicFaculty,
+    academicDepartment,
+    courseMarks,
+  }: OfferedCourseData) => ({
+    key: _id,
+    fullName: student?.fullName,
+    middleName: student?.name?.middleName,
+    firstName: student?.name?.firstName,
+    gender: student?.gender,
+    age: student?.dateOfBirth,
+    sEmail: student?.email,
+    contactNo: student?.contactNo,
+    bloodGroup: student?.bloodGroup,
+    presentAddress: student?.presentAddress,
+    permanentAddress: student?.permanentAddress,
+    id: student?.id,
+    profileImg: student?.profileImg,
+    grade,
+    days: offeredCourse?.days?.join(", "),
+    fullNameFaculty: faculty?.fullName,
+    facultyImage: faculty?.profileImg,
+    title: course?.title,
+    gradePoints,
+    fatherName: student?.guardian?.fatherName,
+    motherName: student?.guardian?.motherName,
+    fatherOccupation: student?.guardian?.fatherOccupation,
+    motherOccupation: student?.guardian?.motherOccupation,
+    fatherNumber: student?.guardian?.fatherContactNo,
+    motherNumber: student?.guardian?.motherContactNo,
+    localGuardianName: student?.localGuardian?.name,
+    localGuardianAddress: student?.localGuardian?.address,
+    localGuardianContactNo: student?.localGuardian?.contactNo,
+    localGuardianOccupation: student?.localGuardian?.occupation,
+    academicSemester: academicSemester?.name,
+    academicSemesterCode: academicSemester?.code,
+    facultyName: academicFaculty?.name,
+    academicDepartment: academicDepartment?.name,
+    classTest1: courseMarks?.classTest1,
+    classTest2: courseMarks?.classTest2,
+    midTerm: courseMarks?.midTerm,
+    finalTerm: courseMarks?.finalTerm,
+    isDeleted: student?.isDeleted,
+  })
+);
 
   const onChange = (key: string) => {
     console.log(key);

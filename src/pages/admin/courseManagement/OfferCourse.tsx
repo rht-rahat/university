@@ -54,11 +54,11 @@ const OfferCourse = () => {
   }));
 
   const courseActionOptions = courseDataAction?.data?.map((item) => ({
-    value: item._id,
-    label: item.title,
+    value: item._id as string,
+    label: item.title as string,
   }));
 
-  const facultiesOptions = facultiesData?.data?.faculties?.map((item) => ({
+  const facultiesOptions = facultiesData?.data?.faculties?.map((item: any) => ({
     value: item._id,
     label: item.fullName,
   }));
@@ -74,7 +74,7 @@ const OfferCourse = () => {
 
     // console.log(offerCourseData);
 
-    const res = await createOfferCourse(offerCourseData);
+    const res: any = await createOfferCourse(offerCourseData);
 
     if (!!res.hasOwnProperty("error")) {
       toast.error(res?.error?.data.message);

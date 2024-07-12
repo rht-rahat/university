@@ -25,7 +25,7 @@ const StudentDetails = () => {
     return date.toLocaleDateString("en-US", options as any);
   };
 
-  const calculateAge = (dateString) => {
+  const calculateAge = (dateString: string | number | Date | undefined) => {
     if (!dateString) return "";
     const birthDate = new Date(dateString);
     const today = new Date();

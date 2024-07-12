@@ -47,10 +47,10 @@ const OfferedCourse = () => {
     const res = await enroll(enrollData);
     // console.log(res);
 
-    if (res?.data?.success === true) {
+    if ( 'data' in res && res?.data?.success === true) {
       toast.success(res?.data?.message);
     } else {
-      toast.error(res?.error?.data?.message);
+      toast.error("something went wrong");
     }
   };
 
@@ -95,7 +95,7 @@ const OfferedCourse = () => {
               <h2>{item.courseTitle}</h2>
             </div>
             <div>
-              {item.sections.map((section) => {
+              {item.sections.map((section: any) => {
                 return (
                   <Row
                     justify="space-between"
@@ -105,7 +105,7 @@ const OfferedCourse = () => {
                     <Col span={5}>section: {section?.section}</Col>
                     <Col span={5} key={section?._id}>
                       days:{" "}
-                      {section.days.map((day) => (
+                      {section.days.map((day: any) => (
                         <span> {day} </span>
                       ))}
                     </Col>

@@ -309,7 +309,7 @@ const StudentDataTable = () => {
               <Divider>Contact Info</Divider>
               <Row gutter={5}>
                 <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                  <PHInput type="email" name="email" label="Email" />
+                  <PHInput type="text" name="email" label="Email" />
                 </Col>
                 <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
                   <PHInput type="text" name="contactNo" label="Contact" />

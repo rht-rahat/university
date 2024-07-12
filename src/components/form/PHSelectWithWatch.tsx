@@ -5,7 +5,7 @@ import { Controller, useFormContext, useWatch } from "react-hook-form";
 type TPHSelectProps = {
   label: string;
   name: string;
-  options: { value: string; label: string; disabled?: boolean }[] | undefined;
+  options?: { value: string; label: string; disabled?: boolean }[]
   disabled?: boolean;
   mode?: "multiple" | undefined;
   onValueChange: React.Dispatch<React.SetStateAction<string>>;
@@ -14,7 +14,7 @@ type TPHSelectProps = {
 const PHSelectWithWatch = ({
   label,
   name,
-  options,
+  options =[],
   disabled,
   mode,
   onValueChange,

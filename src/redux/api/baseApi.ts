@@ -11,7 +11,7 @@ import { logOut, setUser } from "../features/auth/authSlice";
 import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api/v1",
+  baseUrl: "https://ph-university-server-pi.vercel.app/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -31,11 +31,13 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if (result?.error?.status === 404) {
-    toast.error(result?.error?.data?.message);
+  if (result?.error?.status === 404 ) {
+    const errorData = result.error.data as { message?: string };
+    toast.error(errorData?.message);
   }
   if (result?.error?.status === 403) {
-    toast.error(result?.error?.data?.message);
+    const errorData = result.error.data as { message?: string };
+    toast.error(errorData?.message);
   }
   if (result?.error?.status === 401) {
     //console.log("refresh token sending");
