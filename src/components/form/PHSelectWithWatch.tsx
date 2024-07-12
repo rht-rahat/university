@@ -14,7 +14,7 @@ type TPHSelectProps = {
 const PHSelectWithWatch = ({
   label,
   name,
-  options =[],
+  options,
   disabled,
   mode,
   onValueChange,

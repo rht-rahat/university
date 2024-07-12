@@ -11,13 +11,14 @@ import { logOut, setUser } from "../features/auth/authSlice";
 import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://ph-university-server-pi.vercel.app/api/v1",
+  baseUrl: "https://university-server-tau.vercel.app/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
 
     if (token) {
       headers.set("authorization", `${token}`);
+      headers.set("Access-Control-Allow-Origin", "*")
     }
 
     return headers;
@@ -42,7 +43,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   if (result?.error?.status === 401) {
     //console.log("refresh token sending");
 
-    const res = await fetch("http://localhost:5000/api/v1/auth/refresh-token", {
+    const res = await fetch("http://localhost:5173/auth/reset-password", {
       method: "POST",
       credentials: "include",
     });
