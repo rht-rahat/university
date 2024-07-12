@@ -20,6 +20,7 @@ import OfferCourse from "../pages/admin/courseManagement/OfferCourse";
 import { ReactNode } from "react";
 import MySchedule from "../pages/student/MySchedule";
 import OfferedCourse from "../pages/admin/courseManagement/OfferedCourse";
+import AllAdmins from "../pages/admin/userManagement/AllAdmins";
 
 type RouteObject = {
   name?: string;
@@ -106,6 +107,11 @@ export const adminPaths: TAdminPaths[] = [
         name: "Create Admin",
         path: "create-admin",
         element: <CreateAdmin />,
+      },
+      {
+        name: "All Admin",
+        path: "all-admin",
+        element: <AllAdmins />,
       },
       {
         name: "Create Faculty",

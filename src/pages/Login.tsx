@@ -35,7 +35,8 @@ const Login = () => {
 
       const res = await login(userInfo).unwrap();
       const user = verifyToken(res.data.accessToken) as TUser;
-      console.log(res);
+     
+      // console.log(res);
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       toast.success(res.message, { id: toastId, duration: 2000 });
 

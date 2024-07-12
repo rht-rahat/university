@@ -31,6 +31,25 @@ const userManagementApi = baseApi.injectEndpoints({
       providesTags: ["student"],
       transformResponse: (response: TResponseRedux<TStudent>) => response.data,
     }),
+    getAllAdmins: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+
+        if (args) {
+          args.forEach((item: TQueryParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+        return { url: "/admins", method: "GET", params: params };
+      },
+      // providesTags: ["admin"],
+      transformResponse: (response: TResponseRedux<any[]>) => {
+        return {
+          data: response.data,
+          meta: response.meta,
+        };
+      },
+    }),
     addStudent: builder.mutation({
       query: (data) => ({
         url: "/users/create-student",
@@ -105,4 +124,5 @@ export const {
   useChangePasswordMutation,
   useUpdateStudentByIdMutation,
   useDeleteStudentByIdMutation,
+  useGetAllAdminsQuery
 } = userManagementApi;
