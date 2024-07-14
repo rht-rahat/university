@@ -1,4 +1,4 @@
-# The University Management FrontEnd
+# The University Management Front-End
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
