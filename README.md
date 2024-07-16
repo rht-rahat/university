@@ -71,7 +71,7 @@ To run the University Management System on your local machine, follow these step
     ```
 4. Start the development server:
     ```bash
-    npm start
+    npm run dev
     ```
 5. Open your browser and navigate to:
     ```url
@@ -79,15 +79,5 @@ To run the University Management System on your local machine, follow these step
     ```
 
 
-    ```js
-    export default {
-      // other rules...
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.node.json'],
-        tsconfigRootDir: __dirname,
-      },
-    }
-    ```
+   
 
